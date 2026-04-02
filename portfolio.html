@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiran | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0f172a;
+color:white;
+}
+
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 60px;
+background:rgba(0,0,0,0.5);
+position:fixed;
+width:100%;
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 60px;
+}
+
+.hero img{
+width:250px;
+border-radius:50%;
+border:4px solid #38bdf8;
+}
+
+.hero-text h1{
+font-size:3rem;
+}
+
+.highlight{
+color:#38bdf8;
+}
+
+/* SECTION */
+section{
+padding:80px 60px;
+}
+
+/* PROJECTS */
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+/* SKILLS */
+.skills span{
+display:inline-block;
+background:#38bdf8;
+color:black;
+padding:8px 15px;
+margin:5px;
+border-radius:20px;
+}
+
+/* CONTACT */
+.contact input, .contact textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+background:#38bdf8;
+border:none;
+padding:10px 20px;
+cursor:pointer;
+}
+
+/* ANIMATION */
+.hidden{
+opacity:0;
+transform:translateY(30px);
+transition:all 1s;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero{
+flex-direction:column;
+text-align:center;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<h2>Kiran M</h2>
+<div>
+<a href="#home">Home</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="home">
+<div class="hero-text">
+<h1>Hello, I'm <span class="highlight">Kiran</span></h1>
+<p>Aspiring Web Developer 🚀</p>
+</div>
+
+<!-- 👉 ADD YOUR PHOTO HERE -->
+<img src="./WhatsApp Image 2026-04-02 at 3.02.32 PM.jpeg" alt="profile">
+</div>
+
+<!-- ABOUT -->
+<section class="hidden">
+<h2>About Me</h2>
+<p>
+I am a passionate BCA student with a strong interest in web development and modern technologies. 
+I enjoy building responsive and user-friendly websites using HTML, CSS, and JavaScript. 
+I am constantly learning and improving my skills by working on real-world projects and exploring new tools.
+
+I am a quick learner, adaptable, and focused on writing clean and efficient code. 
+My goal is to start my career as a web developer where I can contribute, grow, and build impactful digital solutions.
+</p>
+</section>
+
+<!-- SKILLS -->
+<section class="hidden">
+<h2>Skills</h2>
+<div class="skills">
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+<span>Git</span>
+<span>Responsive Design</span>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="hidden">
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+<h3>Vijaya Cafe</h3>
+<p>Food ordering UI with clean design</p>
+</div>
+
+<div class="card">
+<h3>Crime Analysis</h3>
+<p>Final year project using data visualization</p>
+</div>
+
+<!-- ADD MORE PROJECTS -->
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="hidden">
+<h2>Contact Me</h2>
+
+<div class="contact">
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea rows="5" placeholder="Message"></textarea>
+<button onclick="sendMsg()">Send</button>
+</div>
+
+</section>
+
+<script>
+// SCROLL ANIMATION
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+
+// FAKE CONTACT BUTTON
+function sendMsg(){
+alert("Message sent! (connect backend later)");
+}
+</script>
+
+</body>
+</html>
